@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".Activity.Login_Screen">
 
@@ -25,22 +26,21 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/robotoslab_regular"
-            android:text="@string/mobile_number"
+            android:text="@string/email_id"
             android:textColor="@color/black"
             android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/mobile_number"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:singleLine="true"
-            android:maxLength="12"
-            android:inputType="number"
+            android:inputType="textEmailAddress"
             android:layout_marginEnd="20dp"
             android:background="@drawable/bg_gray"
-            android:drawableStart="@drawable/phone"
+            android:drawableStart="@drawable/email_id"
             android:drawablePadding="5dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
