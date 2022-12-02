@@ -31,8 +31,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
         toolbar?.title = "Androidly"
         toolbar?.subtitle = "Sub"
-        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.alvin_pizza_name)
-        toolbar?.setNavigationOnClickListener { Toast.makeText(applicationContext,"Navigation icon was clicked",Toast.LENGTH_SHORT).show() }
+        toolbar?.navigationIcon = ContextCompat.getDrawable(this, R.drawable.alvin_pizza_name)
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -46,6 +45,13 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        toolbar?.setNavigationOnClickListener {
+            Toast.makeText(applicationContext, "Navigation icon was clicked", Toast.LENGTH_SHORT)
+                .show()
+            drawerLayout.open()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
