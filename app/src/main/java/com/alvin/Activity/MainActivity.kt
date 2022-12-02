@@ -2,8 +2,10 @@ package com.alvin.Activity
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -24,7 +26,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //setSupportActionBar(binding.appBarMain.toolbar)
+        val toolbar = binding.appBarMain.toolbar as Toolbar?
         setSupportActionBar(binding.appBarMain.toolbar)
+        toolbar?.title = "Androidly"
+        toolbar?.subtitle = "Sub"
+        toolbar?.navigationIcon = ContextCompat.getDrawable(this,R.drawable.alvin_pizza_name)
+        toolbar?.setNavigationOnClickListener { Toast.makeText(applicationContext,"Navigation icon was clicked",Toast.LENGTH_SHORT).show() }
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout

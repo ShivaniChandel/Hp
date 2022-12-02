@@ -11,15 +11,42 @@
         android:layout_height="wrap_content"
         android:theme="@style/Theme.ALVIN.AppBarOverlay">
 
-        <com.google.android.material.appbar.MaterialToolbar
+       <!-- <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:title="AAAA"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
+        </com.google.android.material.appbar.MaterialToolbar>
+-->
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:subtitle="Sub"
+            app:title="AndroidlyToolbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:tint="@color/red"
+                    app:tint="@color/lightred"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/alvin_pizza_name" />
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main" />
