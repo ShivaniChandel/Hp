@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="com.alvin.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_item_Detail2"
+            app:destination="@id/item_Detail2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +26,18 @@
         android:name="com.alvin.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/item_Detail2"
+        android:name="com.alvin.Fragments.Item_Detail"
+        android:label="fragment_item__detail"
+        tools:layout="@layout/fragment_item__detail" >
+        <action
+            android:id="@+id/action_item_Detail2_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.alvin.Fragments.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>

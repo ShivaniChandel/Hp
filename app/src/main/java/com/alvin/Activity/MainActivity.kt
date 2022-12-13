@@ -1,11 +1,14 @@
 package com.alvin.Activity
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -25,6 +28,13 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(R.color.red)
+        }
 
         //setSupportActionBar(binding.appBarMain.toolbar)
         val toolbar = binding.appBarMain.toolbar as Toolbar?
@@ -46,11 +56,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        toolbar?.setNavigationOnClickListener {
-            Toast.makeText(applicationContext, "Navigation icon was clicked", Toast.LENGTH_SHORT)
-                .show()
+        /*toolbar?.setNavigationOnClickListener {
+           *//* Toast.makeText(applicationContext, "Navigation icon was clicked", Toast.LENGTH_SHORT)
+                .show()*//*
             drawerLayout.open()
-        }
+        }*/
+
+
 
     }
 
@@ -63,4 +75,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 }
