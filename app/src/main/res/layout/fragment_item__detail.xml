@@ -5,190 +5,197 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.Item_Detail">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="start"
-            android:gravity="center"
-            android:visibility="invisible"
-            android:weightSum="2">
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:weightSum="2">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6"
+                    android:fontFamily="@font/robotoslab_bold"
+                    android:text="Pan Pizza"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+
+                <RatingBar
+                    android:id="@+id/item_rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:numStars="5"
+                    android:progressTint="@color/red"
+                    android:rating="1" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_img"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_name"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.6"
-                android:fontFamily="@font/robotoslab_bold"
-                android:text="@string/hello_first_fragment"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Size"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
-
-            <RatingBar
-                android:id="@+id/item_rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="0dp"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:numStars="5"
-                android:progressTint="@color/red"
-                android:rating="1" />
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Select 1 out of if 5 sizes"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_item_sizes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/adapter_item_sizes" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Crust"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/item_img"
-            android:layout_width="wrap_content"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gal"
-            android:visibility="invisible" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Select 1 out of if 5 options"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_item_crust"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/adapter_item_crust" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Size"
-            android:textColor="@color/gray"
-            android:textSize="15sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Topping"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Select 1 out of if 5 sizes"
-            android:textColor="@color/gray"
-            android:textSize="12sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_item_sizes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/adapter_item_sizes"
-            tools:visibility="gone" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Crust"
-            android:textColor="@color/gray"
-            android:textSize="15sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="Select 1 out of if 5 options"
-            android:textColor="@color/gray"
-            android:textSize="12sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_item_crust"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/adapter_item_crust"
-            tools:visibility="gone" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="@string/hello_first_fragment"
-            android:textColor="@color/gray"
-            android:textSize="15sp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotoslab_regular"
-            android:text="@string/hello_first_fragment"
-            android:textColor="@color/gray"
-            android:textSize="12sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotoslab_regular"
+                android:text="Select Topping from these options"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_topping"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/adapter_item_topping"
-            tools:visibility="gone" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_topping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/adapter_item_topping" />
 
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="10dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:background="@drawable/bg_fill_red"
-                android:gravity="start"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_fill_red"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
 
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.35"
-                    android:gravity="center"
-                    android:text="+" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.35"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:text="+" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.3"
-                    android:gravity="center"
-                    android:text="1" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.3"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="1" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.35"
-                    android:gravity="center"
-                    android:text="-" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_weight="0.35"
+                        android:gravity="center"
+                        android:text="-" />
 
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/add_btn"
-                android:background="@drawable/bg_fill_red"
-                android:layout_marginStart="40dp"
-                android:layout_width="150dp"
-                android:layout_height="40dp">
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/robotoslab_regular"
-                    android:text="@string/hello_first_fragment"
-                    android:layout_height="match_parent"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/add_btn"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/bg_fill_red">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/robotoslab_regular"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="Add Item ₹ 99"
+                        android:textSize="16sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

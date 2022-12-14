@@ -38,6 +38,7 @@ class Item_Detail : Fragment() {
 
     }
 
+
     private fun setupRecyclerView() {
         binding.rvItemSizes.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -64,27 +65,27 @@ class Item_Detail : Fragment() {
     private fun createHeroList(): ArrayList<ItemSizes> {
         return arrayListOf<ItemSizes>(
             ItemSizes(
-                "Ajay Devgan", "123",
+                "Regular", "₹99",true,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Chris Hemsworth", "123",
+                "Medium", "₹199",false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Daniel Craig", "123",
+                "Small", "₹199",false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Dwayne Johnson", "123",
+                "Larger", "₹199",false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Tom Hiddlestone", "123",
+                "XXX", "₹199",false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Tony Stark", "123",
+                "XXL", "₹199",false,
                 R.drawable.gal
             )
         )
@@ -93,22 +94,22 @@ class Item_Detail : Fragment() {
     private fun createCrustList(): ArrayList<CrustOptions> {
         return arrayListOf<CrustOptions>(
             CrustOptions(
-                "Ajay Devgan", "123"
+                "New Hand", "Tossed"
             ),
             CrustOptions(
-                "Chris Hemsworth", "123"
+                "Cheese", "Burst"
             ),
             CrustOptions(
-                "Daniel Craig", "123"
+                "Classic", "Burst"
             ),
             CrustOptions(
-                "Dwayne Johnson", "123"
+                "Cheese", "Burst"
             ),
             CrustOptions(
-                "Tom Hiddlestone", "123"
+                "Classic", "Burst"
             ),
             CrustOptions(
-                "Tony Stark", "123"
+                "Classic", "Burst"
             )
         )
     }

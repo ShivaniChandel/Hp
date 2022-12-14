@@ -5,10 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.CartFragment">
 
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="wrap_content"
-    tools:listitem="@layout/adapter_cart_layout"
-    android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/adapter_cart_layout" />
 
-
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:layout_gravity="bottom"
+        android:fontFamily="@font/robotoslab_bold"
+        android:gravity="center"
+        android:text="Pay"
+        android:textSize="18sp" />
 </FrameLayout>

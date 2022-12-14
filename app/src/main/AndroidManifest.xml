@@ -42,8 +42,7 @@
         </activity>
         <activity
             android:name=".Activity.Splash_Screen"
-            android:exported="true"
-            android:label="@string/title_activity_splash_screen">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

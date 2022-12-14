@@ -39,7 +39,7 @@ class Splash_Screen : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             } else {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, Login_Screen::class.java)
                 startActivity(intent)
                 finish()
             }
