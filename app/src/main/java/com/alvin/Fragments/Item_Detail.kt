@@ -8,10 +8,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.alvin.Adapter.Crust_Optionadapter
 import com.alvin.Adapter.ItemSizes_adapter
+import com.alvin.Adapter.ItemTopping_adapter
 import com.alvin.ModelClasses.CrustOptions
 import com.alvin.ModelClasses.ItemSizes
+import com.alvin.ModelClasses.Topiing_model
 import com.alvin.R
 import com.alvin.databinding.FragmentItemDetailBinding
 
@@ -33,13 +36,13 @@ class Item_Detail : Fragment() {
 
         setupRecyclerView()
 
-
         return root
 
     }
 
 
     private fun setupRecyclerView() {
+
         binding.rvItemSizes.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = ItemSizes_adapter(createHeroList()) { item, position ->
@@ -49,15 +52,22 @@ class Item_Detail : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        }
+        }.itemAnimator as SimpleItemAnimator
         binding.rvItemCrust.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = Crust_Optionadapter(createCrustList()) { item, position ->
+
+
                 Toast.makeText(
                     activity,
                     "Clicked on actor: ${item.name}",
                     Toast.LENGTH_SHORT
                 ).show()
+            }
+        }
+        binding.rvTopping.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = ItemTopping_adapter(createToppingList()) { item, position ->
             }
         }
     }
@@ -94,22 +104,44 @@ class Item_Detail : Fragment() {
     private fun createCrustList(): ArrayList<CrustOptions> {
         return arrayListOf<CrustOptions>(
             CrustOptions(
-                "New Hand", "Tossed"
+                "New Hand", "Tossed",true
             ),
             CrustOptions(
-                "Cheese", "Burst"
+                "Cheese", "Burst",false
             ),
             CrustOptions(
-                "Classic", "Burst"
+                "Classic", "Burst",false
             ),
             CrustOptions(
-                "Cheese", "Burst"
+                "Cheese", "Burst",false
             ),
             CrustOptions(
-                "Classic", "Burst"
+                "Classic", "Burst",false
             ),
             CrustOptions(
-                "Classic", "Burst"
+                "Classic", "Burst",false
+            )
+        )
+    }
+    private fun createToppingList(): ArrayList<Topiing_model> {
+        return arrayListOf<Topiing_model>(
+            Topiing_model(
+                "New Hand","₹199",false
+            ),
+            Topiing_model(
+                "Cheese","₹199",false
+            ),
+            Topiing_model(
+                "Classic", "₹199",false
+            ),
+            Topiing_model(
+                "Cheese", "₹199",false
+            ),
+            Topiing_model(
+                "Classic", "₹199",false
+            ),
+            Topiing_model(
+                "Classic", "₹199",false
             )
         )
     }

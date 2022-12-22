@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/splash"
     android:layout_height="match_parent"
+    android:foreground="@color/black"
     tools:context=".Activity.Splash_Screen">
 
   <androidx.appcompat.widget.AppCompatImageView

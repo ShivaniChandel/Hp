@@ -2,6 +2,7 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
     android:layout_height="80dp"
+    android:id="@+id/crust_container"
     android:background="@drawable/bg_white"
     android:orientation="vertical"
     android:layout_margin="5dp">

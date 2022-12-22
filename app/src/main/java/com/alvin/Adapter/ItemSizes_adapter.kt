@@ -10,11 +10,8 @@ import com.alvin.R
 import com.alvin.databinding.AdapterItemSizesBinding
 
 class ItemSizes_adapter(
-    private val heroList: ArrayList<ItemSizes>,
-    private val listener: (ItemSizes, Int) -> Unit
-) :
-    RecyclerView.Adapter<ItemSizes_adapter.ViewHolder>() {
-
+    private val heroList: ArrayList<ItemSizes>, private val listener: (ItemSizes, Int) -> Unit
+) : RecyclerView.Adapter<ItemSizes_adapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = AdapterItemSizesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -23,7 +20,75 @@ class ItemSizes_adapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(heroList[position])
-        //  holder.itemView.setOnClickListener { listener(heroList[position], position) }
+
+        holder.itemView.setOnClickListener {
+            Log.i("TAG", "=====position====" + position)
+
+            if (heroList.get(position).selected) {
+
+                //if(heroList.any { it.selected == true })
+                for (i in 0 until heroList.size) {
+                    if (i == position) {
+                        heroList.set(
+                            position,
+                            ItemSizes(
+                                heroList.get(position).name,
+                                heroList.get(position).prize,
+                                false,
+                                heroList.get(position).image
+                            )
+                        )
+                    } else {
+                        heroList.set(
+                            i,
+                            ItemSizes(
+                                heroList.get(i).name,
+                                heroList.get(i).prize,
+                                false,
+                                heroList.get(i).image
+                            )
+                        )
+                    }
+                }
+                heroList.set(
+                    position,
+                    ItemSizes(
+                        heroList.get(position).name,
+                        heroList.get(position).prize,
+                        false,
+                        heroList.get(position).image
+                    )
+                )
+
+            } else {
+
+                for (i in 0 until heroList.size) {
+                    if (i == position) {
+                        heroList.set(
+                            position,
+                            ItemSizes(
+                                heroList.get(position).name,
+                                heroList.get(position).prize,
+                                true,
+                                heroList.get(position).image
+                            )
+                        )
+                    } else {
+                        heroList.set(
+                            i,
+                            ItemSizes(
+                                heroList.get(i).name,
+                                heroList.get(i).prize,
+                                false,
+                                heroList.get(i).image
+                            )
+                        )
+                    }
+                }
+            }
+
+            notifyDataSetChanged()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -45,12 +110,6 @@ class ItemSizes_adapter(
             itemBinding.sizesName.text = itemSizes.name
             itemBinding.prizeTxt.text = itemSizes.prize
 
-
-            itemBinding.sizeContainer.setOnClickListener {
-                itemSizes.selected = true
-                itemBinding.sizeContainer.setBackgroundResource(R.drawable.bg_yellow)
-                itemBinding.selectedImg.visibility = View.VISIBLE
-            }
         }
     }
 }

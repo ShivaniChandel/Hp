@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         //setSupportActionBar(binding.appBarMain.toolbar)
         val toolbar = binding.appBarMain.toolbar as Toolbar?
         setSupportActionBar(binding.appBarMain.toolbar)
-        toolbar?.title = "Androidly"
-        toolbar?.subtitle = "Sub"
+        /*toolbar?.title = "Androidly"
+        toolbar?.subtitle = "Sub"*/
         toolbar?.navigationIcon = ContextCompat.getDrawable(this, R.drawable.alvin_pizza_name)
 
 

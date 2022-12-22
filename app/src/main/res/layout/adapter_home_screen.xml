@@ -26,8 +26,8 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
-                android:scaleType="center"
-                android:src="@drawable/banner" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/gal" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
