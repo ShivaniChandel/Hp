@@ -20,9 +20,9 @@ class ItemTopping_adapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(heroList[position])
-        holder.itemView.setOnClickListener {
+        holder.itemBinding.checkTopping.setOnClickListener {
 
-            listener(heroList[position], position)
+           // listener(heroList[position], position)
 
             if (heroList.get(position).selected) {
                 heroList.set(
@@ -47,6 +47,7 @@ class ItemTopping_adapter(
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bindItem(topiingModel: Topiing_model) {
             itemBinding.toppingname.text = topiingModel.name
+            itemBinding.checkTopping.text = topiingModel.price
 
             if (topiingModel.selected) {
                 itemBinding.checkTopping.isChecked = true

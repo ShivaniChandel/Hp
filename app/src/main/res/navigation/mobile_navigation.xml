@@ -39,5 +39,13 @@
         android:id="@+id/cartFragment"
         android:name="com.alvin.Fragments.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/to_checkout"
+            app:destination="@id/checkout_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkout_Fragment"
+        android:name="com.alvin.Fragments.Checkout_Fragment"
+        android:label="Checkout_Fragment" />
 </navigation>

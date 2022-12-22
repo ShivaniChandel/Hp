@@ -19,7 +19,7 @@ import com.alvin.R
 import com.alvin.databinding.FragmentItemDetailBinding
 
 class Item_Detail : Fragment() {
-
+    var quantity = 1
     private var _binding: FragmentItemDetailBinding? = null
 
     // This property is only valid between onCreateView and
@@ -75,27 +75,27 @@ class Item_Detail : Fragment() {
     private fun createHeroList(): ArrayList<ItemSizes> {
         return arrayListOf<ItemSizes>(
             ItemSizes(
-                "Regular", "₹99",true,
+                "Regular", "₹99", true,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Medium", "₹199",false,
+                "Medium", "₹199", false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Small", "₹199",false,
+                "Small", "₹199", false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "Larger", "₹199",false,
+                "Larger", "₹199", false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "XXX", "₹199",false,
+                "XXX", "₹199", false,
                 R.drawable.gal
             ),
             ItemSizes(
-                "XXL", "₹199",false,
+                "XXL", "₹199", false,
                 R.drawable.gal
             )
         )
@@ -104,44 +104,45 @@ class Item_Detail : Fragment() {
     private fun createCrustList(): ArrayList<CrustOptions> {
         return arrayListOf<CrustOptions>(
             CrustOptions(
-                "New Hand", "Tossed",true
+                "New Hand", "Tossed", true
             ),
             CrustOptions(
-                "Cheese", "Burst",false
+                "Cheese", "Burst", false
             ),
             CrustOptions(
-                "Classic", "Burst",false
+                "Classic", "Burst", false
             ),
             CrustOptions(
-                "Cheese", "Burst",false
+                "Cheese", "Burst", false
             ),
             CrustOptions(
-                "Classic", "Burst",false
+                "Classic", "Burst", false
             ),
             CrustOptions(
-                "Classic", "Burst",false
+                "Classic", "Burst", false
             )
         )
     }
+
     private fun createToppingList(): ArrayList<Topiing_model> {
         return arrayListOf<Topiing_model>(
             Topiing_model(
-                "New Hand","₹199",false
+                "New Hand", "₹199", false
             ),
             Topiing_model(
-                "Cheese","₹199",false
+                "Cheese", "₹199", false
             ),
             Topiing_model(
-                "Classic", "₹199",false
+                "Classic", "₹199", false
             ),
             Topiing_model(
-                "Cheese", "₹199",false
+                "Cheese", "₹199", false
             ),
             Topiing_model(
-                "Classic", "₹199",false
+                "Classic", "₹199", false
             ),
             Topiing_model(
-                "Classic", "₹199",false
+                "Classic", "₹199", false
             )
         )
     }
@@ -153,6 +154,19 @@ class Item_Detail : Fragment() {
 
             findNavController().navigate(R.id.action_item_Detail2_to_cartFragment)
 
+        }
+
+        binding.quantityTv.text = quantity.toString()
+
+        binding.plusTv.setOnClickListener {
+            quantity++
+            binding.quantityTv.text = quantity.toString()
+        }
+
+        binding.minusTv.setOnClickListener {
+            if (quantity >= 1)
+                quantity--
+            binding.quantityTv.text = quantity.toString()
         }
 
     }
